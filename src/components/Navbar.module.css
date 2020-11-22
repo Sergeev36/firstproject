@@ -1,0 +1,14 @@
+
+
+.nav {
+    grid-area: n;
+    background-color: aqua;
+}
+
+.link {
+    color: grey;
+}
+
+.link.active {
+    color: blue;
+}
