@@ -16,10 +16,9 @@ const MyPosts = () => {
              </div>
 
                 <div className={mod.myposts}>
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
+                    <Post message="It's my first post!" likesCount="35" />
+                    <Post message="Hello,how are you?" likesCount="4" />
+
                 </div>
        </div>
 
