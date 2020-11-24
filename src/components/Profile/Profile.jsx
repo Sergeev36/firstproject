@@ -8,15 +8,15 @@ const Profile = () => {
 
     return (
 
-        < div className={mod.content} >
-            < div>< img src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" / >
-            < / div >
-            < div>ava+post
-            < / div >
-         <MyPosts />
-             < /div>
-  )
+        < div className={mod.content}>
+            < div>
+                < img src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" / >
+            </div>
+            < div>ava+post</div>
+            <MyPosts/>
+         </div>
+                    )
 
-                 };
+                    };
 
    export default Profile;

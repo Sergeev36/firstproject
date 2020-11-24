@@ -11,6 +11,11 @@
     grid-gap: 10px;
 }
 
+.app-wrapper-contents {
+    grid-area: c;
+    background-color: powderblue;
+}
+
 
 
 
