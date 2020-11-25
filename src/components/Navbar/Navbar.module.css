@@ -3,12 +3,15 @@
 .nav {
     grid-area: n;
     background-color: aqua;
+    padding: 20px;
+
 }
 
-.link {
+.link a  {
     color: grey;
+    text-decoration: none;
 }
 
-.link.active {
+.link a.active {
     color: blue;
 }

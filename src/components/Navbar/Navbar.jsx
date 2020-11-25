@@ -1,13 +1,17 @@
+import {NavLink} from "react-router-dom";
 import mod from './Navbar.module.css';
+
+
 
 const Navbar = () => {
     return (
         <div className={mod.nav}>
-            <div className={mod.link}><a href="/profile">Profile</a></div>
-            <div className={`${mod.link} ${mod.active}`}><a href="/dialogs">Messages</a></div>
-            <div className={mod.link}><a href="/news">News</a></div>
-            <div className={mod.link}><a href="/music">Music</a></div>
-            <div className={mod.link}><a href="/settings">Setting</a></div>
+            <div className={mod.link}><NavLink to="/profile" activeClassName={mod.active}>Profile</NavLink></div>
+            <div className={mod.link}><NavLink to="/dialogs" activeClassName={mod.active}>Messages</NavLink></div>
+            <div className={mod.link}><NavLink to="/news" activeClassName={mod.active}>News</NavLink></div>
+            <div className={mod.link}><NavLink to="/music" activeClassName={mod.active}>Music</NavLink></div>
+            <div className={mod.link}><NavLink to="/settings" activeClassName={mod.active}>Setting</NavLink></div>
+
         </div>
 
     )

@@ -1,6 +1,6 @@
-
-import MyPosts from "./MyPosts/MyPosts";
 import mod from './Profile.module.css';
+import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 const Profile = () => {
@@ -9,14 +9,11 @@ const Profile = () => {
     return (
 
         < div className={mod.content}>
-            < div>
-                < img src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" / >
-            </div>
-            < div>ava+post</div>
+            <ProfileInfo/>
             <MyPosts/>
-         </div>
-                    )
+        </div>
+    )
 
-                    };
+        }
 
    export default Profile;
