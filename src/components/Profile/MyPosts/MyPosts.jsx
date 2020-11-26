@@ -4,14 +4,11 @@ import mod from "./MyPosts.module.css";
 
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-  let messages = [
-      {id: "0", message: "It's my first post!", likesCount: "35"},
-      {id: "1", message: "Hello,how are you?", likesCount: "4"}
-  ];
 
-  let dialogsElements = messages.map(m => <Post message={m.message} likesCount={m.likesCount} />);
+
+  let dialogsElements = props.posts.map(m => <Post message={m.message} likesCount={m.likesCount} />);
 
     return (
         <div>
