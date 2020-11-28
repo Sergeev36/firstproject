@@ -3,13 +3,22 @@ import mod from "./Post.module.css"
 
 const Post = (props) => {
     return (
-        <div className={mod.post}>
-            <img src="https://lumpics.ru/wp-content/uploads/2017/11/Programmyi-dlya-sozdaniya-avatarok.png" alt=""/>
-            {props.message}
-            <div className={mod.like}>
-              <span>like</span>  {props.likesCount}
-           </div>
+        <div>
+            <div className={mod.post}>
+                <div><img src={props.avatar} alt=""/></div>
+                <div className={mod.postText}>{props.message}</div>
+            </div>
+            <div className={mod.likes}>
+
+                <img src="https://pngimg.com/uploads/like/like_PNG29.png" alt=""/>
+
+                <div className={mod.likesNumbers}>
+                    <b>{props.likesCount}</b>
+                </div>
+
+            </div>
         </div>
+
     )
 
 };

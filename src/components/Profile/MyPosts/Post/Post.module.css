@@ -1,6 +1,7 @@
 
 .post {
- color: grey;
+    display: flex;
+
 }
 
 .post img {
@@ -8,6 +9,23 @@
     height: 50px;
 }
 
-.like {
-    color: red;
+.postText {
+    padding:15px;
 }
+
+.likes {
+    display: flex;
+}
+
+.likes img {
+    width: 25px;
+    height: 25px;
+}
+
+.likesNumbers {
+    color: #f59936;
+   margin:5px 5px;
+
+}
+
+

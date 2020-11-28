@@ -6,7 +6,7 @@ const Header = () => {
         < header
             className={mod.header}>
             < img
-                src="https://s1.logaster.com/static/v3/img/products/logo.png" / >
+                src="https://images.vexels.com/media/users/3/184154/isolated/preview/9751abbb24f742adc07e993dc528bc32-colorful-3d-letter-r-by-vexels.png" / >
             < / header >
                 )
                 };

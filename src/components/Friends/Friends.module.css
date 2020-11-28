@@ -1,0 +1,17 @@
+
+
+
+.friendsItem img {
+    width: 40px;
+    height: 40px;
+}
+
+.friendsItem {
+    margin-left: 10px;
+    color: #35c8db;
+}
+.friendsItem:first-child {
+    margin-left: 0;
+}
+
+

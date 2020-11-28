@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 
 
 
-  let dialogsElements = props.posts.map(m => <Post message={m.message} likesCount={m.likesCount} />);
+  let dialogsElements = props.posts.map(m => <Post message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
 
     return (
         <div>

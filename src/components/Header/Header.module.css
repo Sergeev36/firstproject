@@ -2,10 +2,12 @@
 
 .header {
     grid-area: h;
-    background-color: red;
+    background-color: #c148c7;
 
 }
 
 .header img {
-    width: 100px;
+    width: 60px;
+    margin-left: 20px;
+    color: white;
 }

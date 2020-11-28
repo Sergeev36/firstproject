@@ -3,9 +3,9 @@ import mod from "./ProfileInfo.module.css"
 const ProfileInfo = () => {
     return (
         <div className={mod.profileInfo}>
-            <div>
-                < img src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg"/>
-            </div>
+
+                < img src="https://avatars.mds.yandex.net/get-pdb/251121/63f7b74c-ea57-4fc8-95be-7934d9798c6f/s1200"/>
+
             <div className={mod.postsBlock}>ava+post</div>
         </div>
     )

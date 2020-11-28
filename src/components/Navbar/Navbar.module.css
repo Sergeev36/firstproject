@@ -2,16 +2,30 @@
 
 .nav {
     grid-area: n;
-    background-color: aqua;
+    background-color: #c148c7;
     padding: 20px;
 
 }
 
 .link a  {
-    color: grey;
+    color: white;
     text-decoration: none;
 }
 
 .link a.active {
-    color: blue;
+    color: #f59936;
+}
+
+.friends {
+    margin-top: 40px;
+}
+
+.friends h2{
+    color: white;
+    font-size: 30px;
+}
+
+.friendsElements {
+    display: flex;
+    margin-top: -20px;
 }
