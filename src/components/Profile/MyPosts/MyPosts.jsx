@@ -1,4 +1,4 @@
-
+import React from 'react';
 import Post from "./Post/Post";
 import mod from "./MyPosts.module.css";
 
@@ -6,9 +6,20 @@ import mod from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
 
+    let dialogsElements = props.posts.map(m => <Post message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
+
+    let newPostElement = React.createRef();
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text)
+    };
+
+    let addPost = () => {
+        props.addPost();
+    };
 
 
-  let dialogsElements = props.posts.map(m => <Post message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
 
     return (
         <div>
@@ -16,12 +27,14 @@ const MyPosts = (props) => {
 
                 <h3>New Post</h3>
 
-                <div>
-                    <textarea cols="20" rows="3"></textarea>
+                <div className={mod.newText}>
+                    <textarea cols="20" rows="3"  ref={newPostElement}
+                              value={props.newPostText}
+                              onChange={onPostChange}/>
                 </div>
 
-                <div>
-                    <button>send</button>
+                <div className={mod.button}>
+                    <button onClick={addPost}>add post</button>
                 </div>
 
             </div>

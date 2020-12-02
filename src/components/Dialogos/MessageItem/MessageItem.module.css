@@ -1,0 +1,12 @@
+.messageItem {
+width: 150px;
+
+
+ padding: 30px;
+ margin-top: 10px;
+ border: 1px solid #35c8db;
+ border-radius:50px;
+
+ background-color: #c148c7;
+    color:  white;
+}

@@ -8,8 +8,17 @@ const NameItem = (props) => {
     let path = "/dialogs/" + props.id;
 
     return (
-        <div className={mod.nameItem}>
-        <NavLink to ={path}> {props.name}</NavLink>
+        <div className={mod.link}>
+        <NavLink to ={path}>
+
+            <div className={mod.nameItem}>
+
+            <div className={mod.avatar}><img src={props.avatar} alt=""/></div>
+            <div className={mod.name}>{props.name}</div>
+
+            </div>
+
+         </NavLink>
         </div>
     )
 }

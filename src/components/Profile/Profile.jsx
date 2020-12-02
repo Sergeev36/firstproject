@@ -3,6 +3,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
+
 const Profile = (props) => {
 
 
@@ -11,7 +12,10 @@ const Profile = (props) => {
 
         < div className={mod.content}>
             <ProfileInfo/>
-            <MyPosts posts={props.state.posts}/>
+            <MyPosts posts={props.profilePage.posts}
+                     addPost={props.addPost}
+                     updateNewPostText={props.updateNewPostText}
+                     newPostText={props.profilePage.newPostText}/>
         </div>
     )
 
