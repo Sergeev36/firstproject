@@ -9,15 +9,23 @@ import MessageItem from "./MessageItem/MessageItem";
 
 
 
-        let namesElements = props.state.names.map(n => <NameItem name={n.name} id={n.id} avatar={n.avatar} />);
+        let namesElements = props.dialogsPage.names.map(n => <NameItem name={n.name} id={n.id} avatar={n.avatar} />);
 
-        let messagesElements = props.state.messages.map(m => <MessageItem message={m.message} />);
+        let messagesElements = props.dialogsPage.messages.map(m => <MessageItem message={m.message} />);
 
         let newMessagePost = React.createRef();
-        let addMessage = () => {
+
+        let onMessageChange = () => {
             let text = newMessagePost.current.value;
-            alert (text);
+            props.updateNewMessageText(text)
         };
+
+        let addMessage = () => {
+            props.addMessage();
+
+        };
+
+
 
 
 
@@ -35,7 +43,9 @@ import MessageItem from "./MessageItem/MessageItem";
 
                 <div className={mod.addMessage}>
                     <div>
-                        <textarea cols="20" rows="3" ref={newMessagePost}></textarea>
+                        <textarea cols="20" rows="3" ref={newMessagePost}
+                                  value={props.dialogsPage.newMessageText}
+                                  onChange={onMessageChange}/>
                     </div>
 
                     <div>

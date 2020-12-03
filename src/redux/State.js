@@ -1,4 +1,6 @@
-import {renderEntireTree} from "../render";
+let renderEntireTree = () => {};
+
+
 
 let state = {
  profilePage: {
@@ -6,7 +8,7 @@ let state = {
    {id: "0", message: "It's my first post!", likesCount: "35", avatar:"https://twitchinfo.ru/wp-content/uploads/2020/01/ava-bigbrauz.png"},
    {id: "1", message: "Hello,how are you?", likesCount: "4" , avatar:"https://i.pinimg.com/originals/97/ff/74/97ff74dc031d3301248dd4d5546254a6.png"}
   ],
-  newPostText:''
+  newPostText:'Welcome'
  },
 
   dialogsPage: {
@@ -21,7 +23,8 @@ let state = {
    {id: "2", name: "Olga" ,avatar:"https://i.pinimg.com/originals/97/ff/74/97ff74dc031d3301248dd4d5546254a6.png"},
    {id: "3", name: "Ekaterina" ,avatar:"https://cdn.iconscout.com/icon/free/png-512/avatar-369-456321.png"},
    {id: "4", name: "Roman" ,avatar:"https://img2.freepng.ru/20180413/gee/kisspng-discord-avatar-twitch-youtube-profile-5ad03f365071c0.1274698915235971103295.jpg"}
-  ]
+  ],
+   newMessageText:'Hello'
   },
 
  friendsPage: {
@@ -34,8 +37,12 @@ let state = {
 
  };
 
-export let addPost = () => {
+export const updateNewPostText = (newText) =>{
+ state.profilePage.newPostText = newText;
+ renderEntireTree(state);
+};
 
+export const addPost = () => {
 
  let newPost = {
   id:'2',
@@ -50,10 +57,25 @@ export let addPost = () => {
 
 };
 
-export let updateNewPostText = (newText) =>{
- state.profilePage.newPostText = newText;
+export const updateNewMessageText = (newMessage) => {
+ state.dialogsPage.newMessageText = newMessage;
  renderEntireTree(state);
 };
+
+export const addMessage = () => {
+ let newMessage = {
+  id:'3',
+  message:state.dialogsPage.newMessageText
+ };
+
+ state.dialogsPage.messages.push(newMessage);
+ state.dialogsPage.newMessageText = '';
+ renderEntireTree(state);
+};
+
+export const subscribe = (observer)=> {
+ renderEntireTree = observer;
+}
 
 
 
