@@ -13,9 +13,8 @@ const Profile = (props) => {
         < div className={mod.content}>
             <ProfileInfo/>
             <MyPosts posts={props.profilePage.posts}
-                     addPost={props.addPost}
-                     updateNewPostText={props.updateNewPostText}
-                     newPostText={props.profilePage.newPostText}/>
+                     newPostText={props.profilePage.newPostText}
+                     dispatch={props.dispatch}/>
         </div>
     )
 
