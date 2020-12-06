@@ -2,6 +2,7 @@ import React from 'react';
 import mod from './Dialogs.module.css'
 import NameItem from "./NameItem/NameItem";
 import MessageItem from "./MessageItem/MessageItem";
+import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/Store";
 
 
 
@@ -17,11 +18,11 @@ import MessageItem from "./MessageItem/MessageItem";
 
         let onMessageChange = () => {
             let text = newMessagePost.current.value;
-            props.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newText:text})
+            props.dispatch(updateNewMessageActionCreator(text))
         };
 
         let addMessage = () => {
-            props.dispatch({type:'ADD-MESSAGE'})
+            props.dispatch(addMessageActionCreator())
 
         };
 
