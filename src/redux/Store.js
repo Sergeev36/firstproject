@@ -1,8 +1,7 @@
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-let ADD_POST = 'ADD-POST';
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
 
-let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-let ADD_MESSAGE = 'ADD-MESSAGE';
+
 
 
 let store = {
@@ -77,34 +76,9 @@ let store = {
 
 
  dispatch (action) {
-  if (action.type === ADD_POST) {
-   let newPost = {
-    id: '2',
-    message: this._state.profilePage.newPostText,
-    likesCount: '0',
-    avatar: 'https://img1.freepng.ru/20180529/bxp/kisspng-user-profile-computer-icons-login-user-avatars-5b0d9430b12e35.6568935815276165607257.jpg'
-   };
-
-   this._state.profilePage.posts.push(newPost);
-   this._state.profilePage.newPostText = '';
-   this._callSubscriber(this._state);
-  } else if (action.type === UPDATE_NEW_POST_TEXT) {
-   this._state.profilePage.newPostText = action.newText;
-   this._callSubscriber(this._state);
-  } else if (action.type === ADD_MESSAGE) {
-   let newMessage = {
-    id: '3',
-    message: this._state.dialogsPage.newMessageText
-   };
-
-   this._state.dialogsPage.messages.push(newMessage);
-   this._state.dialogsPage.newMessageText = '';
-   this._callSubscriber(this._state);
-  } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-   this._state.dialogsPage.newMessageText = action.newMessage;
-   this._callSubscriber(this._state);
-  }
-
+  this._state.profilePage = profileReducer(this._state.profilePage,action)
+  this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action)
+  this._callSubscriber(this._state);
  }
 
 
@@ -115,11 +89,6 @@ let store = {
 };
 
 
-export const addPostActionCreator = () => ({type:ADD_POST});
-export const updateNewPostActionCreator = (text) => ({type:UPDATE_NEW_POST_TEXT,newText:text});
-
-export const addMessageActionCreator = () => ({type:ADD_MESSAGE});
-export const updateNewMessageActionCreator = (text) => ({type:UPDATE_NEW_MESSAGE_TEXT,newMessage:text});
 
 
 export default store;

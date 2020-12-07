@@ -2,7 +2,7 @@ import React from 'react';
 import mod from './Dialogs.module.css'
 import NameItem from "./NameItem/NameItem";
 import MessageItem from "./MessageItem/MessageItem";
-import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/Store";
+import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/dialogs-reducer";
 
 
 
@@ -16,8 +16,8 @@ import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redu
 
         let newMessagePost = React.createRef();
 
-        let onMessageChange = () => {
-            let text = newMessagePost.current.value;
+        let onMessageChange = (e) => {
+            let text = e.target.value;
             props.dispatch(updateNewMessageActionCreator(text))
         };
 
