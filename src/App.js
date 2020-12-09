@@ -17,11 +17,12 @@ import Profile from "./components/Profile/Profile";
 
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Nav state={props.state.friendsPage}/>
+                <Nav/>
                 <div className="app-wrapper-contents">
                     <Route path='/profile' render={ () => <Profile profilePage={props.state.profilePage}
                                                                    dispatch={props.dispatch}

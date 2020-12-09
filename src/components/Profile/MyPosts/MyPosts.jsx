@@ -7,7 +7,7 @@ import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/p
 
 const MyPosts = (props) => {
 
-    let dialogsElements = props.posts.map(m => <Post message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
+    let dialogsElements = props.profilePage.posts.map(m => <Post message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
 
     let newPostElement = React.createRef();
 
@@ -30,7 +30,7 @@ const MyPosts = (props) => {
 
                 <div className={mod.newText}>
                     <textarea cols="20" rows="3"  ref={newPostElement}
-                              value={props.newPostText}
+                              value={props.profilePage.newPostText}
                               onChange={onPostChange}/>
                 </div>
 

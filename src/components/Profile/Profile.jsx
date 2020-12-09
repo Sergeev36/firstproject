@@ -7,13 +7,11 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Profile = (props) => {
 
 
-
     return (
 
         < div className={mod.content}>
             <ProfileInfo/>
-            <MyPosts posts={props.profilePage.posts}
-                     newPostText={props.profilePage.newPostText}
+            <MyPosts profilePage={props.profilePage}
                      dispatch={props.dispatch}/>
         </div>
     )

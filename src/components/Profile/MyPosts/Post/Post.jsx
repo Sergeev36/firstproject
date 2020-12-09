@@ -2,6 +2,7 @@
 import mod from "./Post.module.css"
 
 const Post = (props) => {
+
     return (
         <div>
             <div className={mod.post}>

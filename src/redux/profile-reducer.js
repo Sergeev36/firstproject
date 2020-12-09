@@ -1,7 +1,27 @@
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let ADD_POST = 'ADD-POST';
 
-const profileReducer = (state,action) => {
+let initialState = {
+
+        posts: [
+            {
+                id: "0",
+                message: "It's my first post!",
+                likesCount: "35",
+                avatar: "https://twitchinfo.ru/wp-content/uploads/2020/01/ava-bigbrauz.png"
+            },
+            {
+                id: "1",
+                message: "Hello,how are you?",
+                likesCount: "4",
+                avatar: "https://i.pinimg.com/originals/97/ff/74/97ff74dc031d3301248dd4d5546254a6.png"
+            }
+        ],
+        newPostText: 'Welcome'
+
+}
+
+const profileReducer = (state=initialState,action) => {
     switch (action.type) {
 
         case UPDATE_NEW_POST_TEXT :
