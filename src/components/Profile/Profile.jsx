@@ -1,5 +1,5 @@
 import mod from './Profile.module.css';
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
@@ -11,8 +11,7 @@ const Profile = (props) => {
 
         < div className={mod.content}>
             <ProfileInfo/>
-            <MyPosts profilePage={props.profilePage}
-                     dispatch={props.dispatch}/>
+            <MyPostsContainer store={props.store}/>
         </div>
     )
 
