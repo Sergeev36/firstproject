@@ -44,7 +44,7 @@ import MessageItem from "./MessageItem/MessageItem";
                 <div className={mod.addMessage}>
                     <div>
                         <textarea cols="20" rows="3" ref={newMessagePost}
-                                  value={props.newMessageText}
+                                  value={props.dialogsPage.newMessageText}
                                   onChange={onNewMessageChange}/>
                     </div>
 
