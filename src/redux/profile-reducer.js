@@ -24,13 +24,14 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case UPDATE_NEW_POST_TEXT : {
-            let stateCopy = {...state}
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
-        }
+        case UPDATE_NEW_POST_TEXT :
+            return {
+                    ...state,
+                    newPostText: action.newText
+                }
 
-        case ADD_POST : {
+
+        case ADD_POST :
             let newPost = {
                 id: '2',
                 message: state.newPostText,
@@ -38,12 +39,14 @@ const profileReducer = (state = initialState, action) => {
                 avatar: 'https://img1.freepng.ru/20180529/bxp/kisspng-user-profile-computer-icons-login-user-avatars-5b0d9430b12e35.6568935815276165607257.jpg'
             };
 
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts]
-            stateCopy.posts.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
-        }
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostText: ''
+            }
+
+
+
         default:
             return state;
 
