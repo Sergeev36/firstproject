@@ -7,7 +7,7 @@ import mod from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
 
-    let dialogsElements = props. profilePage.posts.map(m => <Post message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
+    let dialogsElements = props. profilePage.posts.map(m => <Post key={m.id} message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
 
     let newPostElement = React.createRef();
 

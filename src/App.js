@@ -8,6 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Profile from "./components/Profile/Profile";
 import DialogsContainer from "./components/Dialogos/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 
@@ -17,6 +18,7 @@ import DialogsContainer from "./components/Dialogos/DialogsContainer";
 
 
 const App = (props) => {
+
 
     return (
         <BrowserRouter>
@@ -30,8 +32,11 @@ const App = (props) => {
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
+                    <Route path='/users' component={UsersContainer}/>
 
-                 </div>
+
+
+                </div>
             </div>
 
         </BrowserRouter>

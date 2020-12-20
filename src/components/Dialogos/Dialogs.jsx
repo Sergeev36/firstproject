@@ -9,9 +9,9 @@ import MessageItem from "./MessageItem/MessageItem";
     const Dialogs = (props) => {
 
 
-        let namesElements = props.dialogsPage.names.map(n => <NameItem name={n.name} id={n.id} avatar={n.avatar} />);
+        let namesElements = props.dialogsPage.names.map(n => <NameItem key={n.id} name={n.name} id={n.id} avatar={n.avatar} />);
 
-        let messagesElements = props.dialogsPage.messages.map(m => <MessageItem message={m.message} />);
+        let messagesElements = props.dialogsPage.messages.map(m => <MessageItem key={m.id} message={m.message} />);
 
         let newMessagePost = React.createRef();
 
