@@ -2,3 +2,21 @@
     width: 100px;
     height: 100px;
 }
+
+.selectedPage {
+    font-weight: bold;
+    border: 1px red solid;
+}
+
+.selectedPage:hover{
+    cursor: pointer;
+}
+
+.page {
+    margin-left: 2px;
+
+}
+
+.page:hover {
+    cursor: pointer;
+}

@@ -1,28 +1,33 @@
 import React from "react";
 import mod from "./users.module.css"
-import *as axios from "axios"
 import photoUsers from "../../assets/images/user.png"
 
-class Users extends React.Component {
-    constructor(props) {
-        super(props);
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-            this.props.setUsers(response.data.items)})
-}
 
+let Users = (props) =>  {
 
-   render () { return <div>
+        let pagesCount = Math.ceil(props.usersCount / props.pageSize);
+        let pages = [];
+        for (let i = 1 ; i <= pagesCount ; i++) {
+            pages.push(i)
+        }
 
-        {this.props.users.map(u =><div key={u.id}>
+        return <div>
+            <div></div>
+            <div>
+                {pages.map(p => {
+                    return <span className={(props.currentPage === p && mod.selectedPage)|| mod.page}
+                                 onClick={()=>{props.onPageChanged(p)}}>{p}</span>})}
+            </div>
+
+        {props.users.map(u =><div key={u.id}>
             <span>
                 <div>
                     <img src={u.photos.small || photoUsers} className={mod.userPhoto}/>
                 </div>
                 <div>
                     { u.followed
-                        ?<button onClick={ ()=> {this.props.unfollow(u.id)} }>Unfollow</button>
-                        :<button onClick={ ()=> {this.props.follow(u.id)} }>Follow</button>}
+                        ?<button onClick={ ()=> {props.unfollow(u.id)} }>Unfollow</button>
+                        :<button onClick={ ()=> {props.follow(u.id)} }>Follow</button>}
                 </div>
             </span>
             <span>
@@ -37,7 +42,7 @@ class Users extends React.Component {
         </div>   ) }
 
 </div>
-}}
+}
 
 
 export default Users;
