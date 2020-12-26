@@ -2,6 +2,7 @@ import React from 'react';
 import mod from './Dialogs.module.css'
 import NameItem from "./NameItem/NameItem";
 import MessageItem from "./MessageItem/MessageItem";
+import {updateNewMessage} from "../../redux/dialogs-reducer";
 
 
 
@@ -17,11 +18,11 @@ import MessageItem from "./MessageItem/MessageItem";
 
         let onNewMessageChange = (e) => {
             let text = e.target.value;
-            props.updateNewMessageChange(text)
+            props.updateNewMessage(text)
         };
 
         let onSendMessageClick = () => {
-            props.sendMessage()
+            props.addMessage()
 
         };
 
