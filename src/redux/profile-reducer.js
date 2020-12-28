@@ -1,5 +1,6 @@
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let ADD_POST = 'ADD-POST';
+let SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 
 let initialState = {
 
@@ -17,7 +18,8 @@ let initialState = {
                 avatar: "https://i.pinimg.com/originals/97/ff/74/97ff74dc031d3301248dd4d5546254a6.png"
             }
         ],
-        newPostText: 'Welcome'
+        newPostText: 'Welcome',
+        profile: null
 
 }
 
@@ -42,7 +44,14 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                newPostText: ''
+                newPostText: '',
+
+            }
+
+        case SET_USERS_PROFILE :
+            return {
+                ...state,
+                profile: action.profile
             }
 
 
@@ -57,6 +66,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPost = () => ({type:ADD_POST});
 export const updateNewPost = (text) => ({type:UPDATE_NEW_POST_TEXT,newText:text});
+export const setUserProfile = (profile) => ({type:SET_USERS_PROFILE,profile});
 
 
 

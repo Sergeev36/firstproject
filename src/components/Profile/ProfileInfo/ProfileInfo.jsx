@@ -1,13 +1,37 @@
 import mod from "./ProfileInfo.module.css"
+import Preloader from "../../common/Preloader/Preloager";
 
-const ProfileInfo = () => {
+
+
+const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Preloader/>
+    }
+
+    const values = Object.values(props.profile.contacts)
+
     return (
         <div className={mod.profileInfo}>
 
-                < img src="https://avatars.mds.yandex.net/get-pdb/251121/63f7b74c-ea57-4fc8-95be-7934d9798c6f/s1200"/>
+                < img className={mod.fon} src="https://avatars.mds.yandex.net/get-pdb/251121/63f7b74c-ea57-4fc8-95be-7934d9798c6f/s1200"/>
 
             <div className={mod.postsBlock}>ava+post</div>
+
+            <div className={mod.profile}>
+                <img src={props.profile.photos.large} alt=""/>
+
+                <div>{props.profile.aboutMe}</div>
+
+                <div>
+                    {values.map(v => {return <div>
+                        <a  href={v} >{v}</a></div>})}
+                </div>
+
+            </div>
+
         </div>
+
+
     )
 
 }
