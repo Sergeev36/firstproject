@@ -8,7 +8,6 @@ const ProfileInfo = (props) => {
         return <Preloader/>
     }
 
-    const values = Object.values(props.profile.contacts)
 
     return (
         <div className={mod.profileInfo}>
@@ -22,10 +21,6 @@ const ProfileInfo = (props) => {
 
                 <div>{props.profile.aboutMe}</div>
 
-                <div>
-                    {values.map(v => {return <div>
-                        <a  href={v} >{v}</a></div>})}
-                </div>
 
             </div>
 
