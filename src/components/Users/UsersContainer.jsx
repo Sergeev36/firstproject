@@ -16,7 +16,8 @@ import Preloader from "../common/Preloader/Preloager";
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
         this.props.setToggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+            {withCredentials: true})
             .then(response => {
                 this.props.setToggleIsFetching(false)
                 this.props.setUsers(response.data.items);
@@ -27,17 +28,20 @@ class UsersAPIComponent extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setToggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+            {withCredentials: true})
             .then(response => {
                 this.props.setToggleIsFetching(false)
                 this.props.setUsers(response.data.items)
             })
-    }
+        }
+
 
     render() {
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-            <Users users={this.props.users}
+            <Users
+                   users={this.props.users}
                    usersCount={this.props.usersCount}
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
@@ -50,6 +54,8 @@ class UsersAPIComponent extends React.Component {
 
     }
 }
+
+
 
 let mapStateToProps = (state) => {
     return {
