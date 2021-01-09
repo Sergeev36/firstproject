@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
             <div className={mod.postsBlock}>ava+post</div>
 
             <div className={mod.profile}>
-                <img src={props.profile.photos.large} alt=""/>
+                <img src={props.profile.photos.large || "https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"} alt=""/>
 
                 <div>{props.profile.aboutMe}</div>
 

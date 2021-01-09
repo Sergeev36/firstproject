@@ -13,9 +13,11 @@
 }
 
 .loginBlock {
+    color:#f59936;
     float: right;
-
+    padding: 16px;
 }
+
 .loginBlock a {
     color: white;
 }

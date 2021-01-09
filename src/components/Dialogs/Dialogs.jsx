@@ -2,12 +2,13 @@ import React from 'react';
 import mod from './Dialogs.module.css'
 import NameItem from "./NameItem/NameItem";
 import MessageItem from "./MessageItem/MessageItem";
-import {updateNewMessage} from "../../redux/dialogs-reducer";
+import {Redirect} from "react-router-dom";
 
 
 
 
     const Dialogs = (props) => {
+
 
 
         let namesElements = props.dialogsPage.names.map(n => <NameItem key={n.id} name={n.name} id={n.id} avatar={n.avatar} />);
@@ -26,12 +27,15 @@ import {updateNewMessage} from "../../redux/dialogs-reducer";
 
         };
 
-
+        if (!props.isAuth) return <Redirect to={"/login"} />
 
 
 
 
     return (
+
+
+
         <div className={mod.dialogs}>
 
             <div className={mod.names}>
