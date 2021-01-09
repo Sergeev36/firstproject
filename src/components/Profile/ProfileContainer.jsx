@@ -1,21 +1,16 @@
 import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/profile-reducer";
+import {profileThunk} from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
-import {userProfile} from "../../api/api";
+
 
 
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
+  this.props.profileThunk(this.props.match.params.userId)
 
-      let userId = this.props.match.params.userId
-        if (!userId) userId = 2
-        userProfile(userId)
-            .then(data => {
-                this.props.setUserProfile(data)
-            })
     }
 
 
@@ -33,4 +28,4 @@ let mapStateToProps = (state) => {
 
 let urlDataContainer = withRouter(ProfileContainer)
 
-export default connect (mapStateToProps,{setUserProfile}) (urlDataContainer);
+export default connect (mapStateToProps,{profileThunk}) (urlDataContainer);
