@@ -2,7 +2,7 @@ import React from 'react';
 import mod from './Dialogs.module.css'
 import NameItem from "./NameItem/NameItem";
 import MessageItem from "./MessageItem/MessageItem";
-import {Redirect} from "react-router-dom";
+
 
 
 
@@ -27,7 +27,7 @@ import {Redirect} from "react-router-dom";
 
         };
 
-        if (!props.isAuth) return <Redirect to={"/login"} />
+
 
 
 
