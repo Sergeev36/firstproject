@@ -1,51 +1,60 @@
 import React from 'react';
 import Post from "./Post/Post";
 import mod from "./MyPosts.module.css";
+import {Field, reduxForm} from "redux-form";
 
 
 
 
-const MyPosts = (props) => {
 
-    let dialogsElements = props. profilePage.posts.map(m => <Post key={m.id} message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
 
-    let newPostElement = React.createRef();
 
-    let onPostChange = () => {
-       let text = newPostElement.current.value;
-       props.updateNewPost(text)
-    };
 
-    let onAddPost = () => {
-       props.addPost()
-    };
+
+const MyPostForm = (props) => {
 
 
 
     return (
-        <div>
-            <div className={mod.newPost}>
+        <form onSubmit={props.handleSubmit} className={mod.newPost}>
 
                 <h3>New Post</h3>
 
                 <div className={mod.newText}>
-                    <textarea cols="20" rows="3"  ref={newPostElement}
-                              value={props.profilePage.newPostText}
-                              onChange={onPostChange}/>
+                    <Field name="postText" component="input" type="textarea"/>
                 </div>
 
-                <div className={mod.button}>
-                    <button onClick={onAddPost}>add post</button>
-                </div>
+                <div className={mod.button}><button>Add post</button></div>
 
-            </div>
+
+        </form>
+
+
+    )
+}
+
+const PostReduxForm = reduxForm({
+    form: 'newPostText'
+})(MyPostForm)
+
+
+const MyPosts = (props) => {
+
+    const addNewPost = (value) => {
+        props.addPost(value.postText)
+    }
+
+    let dialogsElements = props. profilePage.posts.map(m => <Post key={m.id} message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
+
+    return (
+        <div>
+            <div><PostReduxForm onSubmit={addNewPost}/></div>
+
 
             <div className={mod.posts}>
                 {dialogsElements}
             </div>
         </div>
-
-
     )
 };
 

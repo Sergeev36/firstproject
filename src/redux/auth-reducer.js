@@ -1,4 +1,4 @@
-import {authMe} from "../api/api";
+import {authMe, loginMe} from "../api/api";
 
 let SET_USER_DATA = 'SET_USER_DATA';
 
@@ -47,6 +47,9 @@ export const authThunk = () => {
             })
     }
 }
+
+
+
 
 
 

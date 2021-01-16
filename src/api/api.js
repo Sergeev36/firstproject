@@ -74,10 +74,10 @@ export const ProfileAPI =  {
 }
 
 
-
 export const authMe = () => {
  return instance.get("auth/me" )
      .then(response => {
          return response.data
      })
 }
+

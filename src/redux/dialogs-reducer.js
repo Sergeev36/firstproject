@@ -1,5 +1,5 @@
 
-let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 let ADD_MESSAGE = 'ADD-MESSAGE';
 
 let initialState = {
@@ -20,7 +20,7 @@ let initialState = {
             {id: "3", name: "Ekaterina", avatar: "https://cdn.iconscout.com/icon/free/png-512/avatar-369-456321.png"},
             {id: "4", name: "Roman", avatar: "https://img2.freepng.ru/20180413/gee/kisspng-discord-avatar-twitch-youtube-profile-5ad03f365071c0.1274698915235971103295.jpg"}
         ],
-        newMessageText: 'Hello'
+
 
 }
 
@@ -30,19 +30,12 @@ const dialogsReducer = (state=initialState,action) => {
         case ADD_MESSAGE :
             return {
                 ...state,
-                messages: [...state.messages, {id: 3, message: state.newMessageText}],
-                newMessageText: ''
+                messages: [...state.messages, {id: 3, message: action.messageText}],
+
             };
 
 
-        case UPDATE_NEW_MESSAGE_TEXT:
-            return {
-                ...state,
-                newMessageText: action.newMessage
-            };
 
-
-        default:
             return state;
     }
 
@@ -54,7 +47,7 @@ const dialogsReducer = (state=initialState,action) => {
     return state;
 }
 
-export const addMessage = () => ({type:ADD_MESSAGE});
-export const updateNewMessage = (text) => ({type:UPDATE_NEW_MESSAGE_TEXT,newMessage:text});
+export const addMessage = (messageText) => ({type:ADD_MESSAGE,messageText});
+
 
 export default dialogsReducer;

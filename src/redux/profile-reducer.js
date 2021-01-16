@@ -22,7 +22,6 @@ let initialState = {
                 avatar: "https://i.pinimg.com/originals/97/ff/74/97ff74dc031d3301248dd4d5546254a6.png"
             }
         ],
-        newPostText: 'Welcome',
         profile: null,
         status:""
 
@@ -31,25 +30,20 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case UPDATE_NEW_POST_TEXT :
-            return {
-                    ...state,
-                    newPostText: action.newText
-                }
 
 
         case ADD_POST :
             let newPost = {
                 id: '2',
-                message: state.newPostText,
+                message: action.postText,
                 likesCount: '0',
                 avatar: 'https://img1.freepng.ru/20180529/bxp/kisspng-user-profile-computer-icons-login-user-avatars-5b0d9430b12e35.6568935815276165607257.jpg'
             };
 
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                newPostText: '',
+                posts: [...state.posts, newPost]
+
 
             }
 
@@ -75,8 +69,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 
-export const addPost = () => ({type:ADD_POST});
-export const updateNewPost = (text) => ({type:UPDATE_NEW_POST_TEXT,newText:text});
+export const addPost = (postText) => ({type:ADD_POST,postText});
 export const setUserProfile = (profile) => ({type:SET_USERS_PROFILE,profile});
 export const setStatus = (status) => ({type:SET_STATUS,status});
 
