@@ -1,0 +1,11 @@
+.warning textarea,
+.warning input
+{
+    border: solid red 2px;
+
+}
+
+.errorMessage {
+    color:red
+}
+
