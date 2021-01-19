@@ -73,11 +73,29 @@ export const ProfileAPI =  {
 
 }
 
+export const LoginApi = {
 
-export const authMe = () => {
- return instance.get("auth/me" )
-     .then(response => {
-         return response.data
-     })
+    authMe ()  {
+        return instance.get("auth/me" )
+            .then(response => {
+                return response.data
+            })
+    },
+       login (email,password,rememberMe)  {
+        return instance.post("auth/login", {email,password,rememberMe} )
+            .then(response => {
+                debugger
+                return response.data
+            })
+    },
+      loginOut ()  {
+        return instance.delete("auth/login" )
+            .then(response => {
+                return response.data
+            })
+    }
+
 }
+
+
 

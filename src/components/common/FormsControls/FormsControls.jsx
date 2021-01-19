@@ -8,8 +8,8 @@ const formsControl = (tag) => ({input,meta,...props}) => {
     return (
 
         <div className={hasError ? mod.warning : ""}>
-            {React.createElement(tag, {...input, ...props})}
-            {hasError && <div><span className={mod.errorMessage}>{meta.error}</span></div>}
+            <div> {React.createElement(tag, {...input, ...props})}</div>
+            {hasError && <span className={mod.errorMessage}>{meta.error}</span>}
         </div>
     )
 }
