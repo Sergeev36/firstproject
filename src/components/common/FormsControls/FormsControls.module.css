@@ -9,3 +9,7 @@
     color:red
 }
 
+.formError {
+    border: red 1px solid;
+    color:red
+}

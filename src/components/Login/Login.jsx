@@ -5,6 +5,7 @@ import {required} from "../utils/validators/validators";
 import {connect} from "react-redux";
 import {loginThunk} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
+import mod from "./../common/FormsControls/FormsControls.module.css"
 
 
 
@@ -17,6 +18,7 @@ export const LoginForm = (props) => {
         <div><Field name="password" component={Input} type="password"
                     validate={[required]} placeholder={"Password"} /></div>
         <div><Field name="rememberMe" component={Input}  type={"Checkbox"} />remember me</div>
+        {props.error && <div className={mod.formError}>{props.error}</div>}
         <div><button>Login</button></div>
     </form>
 }

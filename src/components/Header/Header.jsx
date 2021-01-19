@@ -1,6 +1,6 @@
 import mod from './Header.module.css';
 import {NavLink} from "react-router-dom";
-import {loginOutThunk} from "../../redux/auth-reducer";
+
 
 
 const Header = (props) => {
