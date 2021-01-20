@@ -38,7 +38,7 @@ export const setUserData = (id,email,login,isAuth) => ({type:SET_USER_DATA,paylo
 
 export const authThunk = () => {
     return (dispatch) => {
-        LoginApi.authMe()
+       return LoginApi.authMe()
             .then(data => {
                 if (data.resultCode === 0) {
                     let {id,email,login} = data.data

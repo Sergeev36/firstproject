@@ -1,7 +1,6 @@
 import './App.css';
+import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";
-
-
 import Nav from './components/Navbar/Navbar';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -11,6 +10,9 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HederContainer";
 import Login from "./components/Login/Login";
+import {connect} from "react-redux";
+import {initializeThunk} from "./redux/app-reducer";
+import Preloader from "./components/common/Preloader/Preloager";
 
 
 
@@ -22,8 +24,18 @@ import Login from "./components/Login/Login";
 
 
 
-const App = (props) => {
+class App extends React.Component {
 
+    componentDidMount() {
+        this.props.initializeThunk()
+    }
+
+
+
+
+    render () {
+
+    if (!this.props.initialized) { return <Preloader/> }
 
     return (
         <BrowserRouter>
@@ -39,15 +51,17 @@ const App = (props) => {
                     <Route path='/settings' component={Settings}/>
                     <Route path='/login' component={Login}/>
 
-
-
-
                 </div>
             </div>
 
         </BrowserRouter>
-)
+)}
 }
 
+const mapStateToProps = (state) => {
+  return {
+      initialized:state.app.initialized
+  }
+}
 
-export default App;
+export default connect (mapStateToProps,{initializeThunk}) (App);
