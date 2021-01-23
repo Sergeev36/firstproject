@@ -1,6 +1,7 @@
 import mod from "./ProfileInfo.module.css"
 import Preloader from "../../common/Preloader/Preloager";
 import ProfileStatus from "./ProfileStatus"
+import ProfileStatusWitchHook from "./ProfileStatusWithHook";
 
 
 const ProfileInfo = (props) => {
@@ -18,7 +19,7 @@ const ProfileInfo = (props) => {
             <div className={mod.profile}>
                 <img src={props.profile.photos.large || "https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"} alt=""/>
 
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWitchHook status={props.status} updateStatus={props.updateStatus}/>
             </div>
 
         </div>
