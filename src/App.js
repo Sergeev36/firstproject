@@ -1,21 +1,19 @@
 import './App.css';
-import React from "react";
+import React,{Suspense} from "react";
 import {BrowserRouter, Route} from "react-router-dom";
-import Nav from './components/Navbar/Navbar';
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import HeaderContainer from "./components/Header/HederContainer";
-import Login from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
 import {initializeThunk} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloager";
 import store from "./redux/redux-store";
-
-
+import Nav from './components/Navbar/Navbar';
+import HeaderContainer from "./components/Header/HederContainer";
+const Music = React.lazy(() => import("./components/Music/Music"));
+const Settings = React.lazy(() => import("./components/Settings/Settings"));
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"));
+const News = React.lazy(() => import("./components/News/News"));
+const Login = React.lazy(() => import("./components/Login/Login"));
 
 
 
@@ -44,6 +42,8 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Nav/>
                 <div className="app-wrapper-contents">
+                   <Suspense fallback={<Preloader/>}>
+
                     <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
                     <Route exact path='/dialogs' render={ () => <DialogsContainer />}/>
                     <Route exact path='/users' render={ () => <UsersContainer/>}/>
@@ -52,6 +52,7 @@ class App extends React.Component {
                     <Route path='/settings' component={Settings}/>
                     <Route path='/login' component={Login}/>
 
+                </Suspense>
                 </div>
             </div>
 

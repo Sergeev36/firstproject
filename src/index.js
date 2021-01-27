@@ -18,8 +18,4 @@ import AppJS from "./App";
 
 
 
-
-
-
-
 reportWebVitals();
