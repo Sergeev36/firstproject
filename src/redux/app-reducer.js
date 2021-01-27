@@ -1,6 +1,6 @@
 import {authThunk} from "./auth-reducer";
 
-let SET_INITIALIZED = 'SET_INITIALIZED';
+let SET_INITIALIZED = 'app/SET_INITIALIZED';
 
 
 let initialState = {

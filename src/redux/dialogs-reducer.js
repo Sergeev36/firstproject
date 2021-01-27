@@ -1,6 +1,6 @@
 
 
-let ADD_MESSAGE = 'ADD-MESSAGE';
+let ADD_MESSAGE = 'dialogsPage/ADD-MESSAGE';
 
 let initialState = {
 

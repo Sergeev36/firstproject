@@ -2,7 +2,7 @@ import {LoginApi} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 
-let SET_USER_DATA = 'SET_USER_DATA';
+let SET_USER_DATA = 'auth/SET_USER_DATA';
 
 
 let initialState = {
@@ -36,39 +36,30 @@ const authReducer = (state = initialState, action) => {
 
 export const setUserData = (id,email,login,isAuth) => ({type:SET_USER_DATA,payload:{id,email,login,isAuth}});
 
-export const authThunk = () => {
-    return (dispatch) => {
-       return LoginApi.authMe()
-            .then(data => {
+export const authThunk = () => async (dispatch) => {
+       let data = await LoginApi.authMe()
                 if (data.resultCode === 0) {
                     let {id,email,login} = data.data
                     dispatch(setUserData(id,email,login,true))
                 }
-            })
-    }
+
 }
-export const loginThunk = (email,password,rememberMe) => {
-    return (dispatch) => {
-        LoginApi.login(email,password,rememberMe)
-            .then(data => {
+export const loginThunk = (email,password,rememberMe) => async (dispatch) => {
+        let data = await LoginApi.login(email,password,rememberMe)
                 if (data.resultCode === 0) {
                     dispatch(authThunk())
                 } else {
                     let message = data.messages.length > 0 ?  data.messages[0] : "Some error";
                     dispatch(stopSubmit("login",{_error:message}))
                 }
-            })
-    }
+
 }
-export const loginOutThunk = () => {
-    return (dispatch) => {
-        LoginApi.loginOut()
-            .then(data => {
+export const loginOutThunk = () => async (dispatch) => {
+        let data = await LoginApi.loginOut()
                 if (data.resultCode === 0) {
                     dispatch(setUserData(null,null,null,false))
                 }
-            })
-    }
+
 }
 
 

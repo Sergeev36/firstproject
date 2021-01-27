@@ -10,9 +10,10 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HederContainer";
 import Login from "./components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initializeThunk} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloager";
+import store from "./redux/redux-store";
 
 
 
@@ -64,4 +65,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps,{initializeThunk}) (App);
+const AppContainer = connect (mapStateToProps,{initializeThunk}) (App);
+
+const AppJS = () => {
+    return <Provider store={store}>
+            <AppContainer/>
+           </Provider>
+}
+
+export default AppJS;
