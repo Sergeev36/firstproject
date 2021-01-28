@@ -37,7 +37,7 @@ class App extends React.Component {
     if (!this.props.initialized) { return <Preloader/> }
 
     return (
-        <BrowserRouter>
+
             <div className="app-wrapper">
                 <HeaderContainer/>
                 <Nav/>
@@ -56,7 +56,7 @@ class App extends React.Component {
                 </div>
             </div>
 
-        </BrowserRouter>
+
 )}
 }
 
@@ -69,9 +69,13 @@ const mapStateToProps = (state) => {
 const AppContainer = connect (mapStateToProps,{initializeThunk}) (App);
 
 const AppJS = () => {
-    return <Provider store={store}>
+    return <BrowserRouter basename={process.env.PUBLIC_URL}>
+
+        <Provider store={store}>
             <AppContainer/>
-           </Provider>
+        </Provider>
+
+            </BrowserRouter>
 }
 
 export default AppJS;
