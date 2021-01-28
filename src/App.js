@@ -69,7 +69,7 @@ const mapStateToProps = (state) => {
 const AppContainer = connect (mapStateToProps,{initializeThunk}) (App);
 
 const AppJS = () => {
-    return <HashRouter basename={process.env.PUBLIC_URL}>
+    return <HashRouter >
 
         <Provider store={store}>
             <AppContainer/>

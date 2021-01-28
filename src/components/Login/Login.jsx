@@ -19,7 +19,7 @@ export const LoginForm = (props) => {
                     validate={[required]} placeholder={"Password"} /></div>
         <div><Field name="rememberMe" component={Input}  type={"Checkbox"} />remember me</div>
         {props.error && <div className={mod.formError}>{props.error}</div>}
-        <div><button>Login</button></div>
+        <div><button >Login</button></div>
         <div className={mod.test}>
             <div>Данные тестового аккаунта:</div>
             <div>Email: <b>free@samuraijs.com</b></div>
