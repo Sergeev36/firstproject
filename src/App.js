@@ -1,6 +1,6 @@
 import './App.css';
 import React,{Suspense} from "react";
-import {BrowserRouter, Route} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 import {initializeThunk} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloager";
@@ -69,13 +69,13 @@ const mapStateToProps = (state) => {
 const AppContainer = connect (mapStateToProps,{initializeThunk}) (App);
 
 const AppJS = () => {
-    return <BrowserRouter basename={process.env.PUBLIC_URL}>
+    return <HashRouter basename={process.env.PUBLIC_URL}>
 
         <Provider store={store}>
             <AppContainer/>
         </Provider>
 
-            </BrowserRouter>
+            </HashRouter>
 }
 
 export default AppJS;
