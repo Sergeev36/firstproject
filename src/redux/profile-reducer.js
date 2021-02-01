@@ -4,6 +4,7 @@ import {ProfileAPI} from "../api/api";
 let ADD_POST = 'profilePage/ADD-POST';
 let SET_USERS_PROFILE = 'profilePage/SET_USERS_PROFILE';
 let SET_STATUS = 'profilePage/STATUS';
+let SET_PHOTO = 'profilePage/SET_PHOTO';
 
 let initialState = {
 
@@ -58,6 +59,12 @@ const profileReducer = (state = initialState, action) => {
                 status: action.status
             }
 
+        case SET_PHOTO :
+            return {
+                ...state,
+                profile: {...state.profile,photos:action.photos}
+            }
+
 
 
         default:
@@ -71,6 +78,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = (postText) => ({type:ADD_POST,postText});
 export const setUserProfile = (profile) => ({type:SET_USERS_PROFILE,profile});
 export const setStatus = (status) => ({type:SET_STATUS,status});
+export const setPhoto = (photos) => ({type:SET_PHOTO,photos});
 
 export const profileThunk = (userId) => async (dispatch) => {
         let data = await ProfileAPI.userProfile(userId)
@@ -86,6 +94,12 @@ export const updateStatusThunk = (status) =>async (dispatch) => {
     let data = await ProfileAPI.updateStatus(status)
                 if (data.resultCode === 0)
                 dispatch(setStatus(status))
+
+}
+export const updatePhotoThunk = (photo) =>async (dispatch) => {
+    let data = await ProfileAPI.updatePhoto(photo)
+                if (data.resultCode === 0)
+                dispatch(setPhoto(data.data.photos))
 
 }
 

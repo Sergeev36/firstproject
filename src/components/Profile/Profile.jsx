@@ -9,7 +9,11 @@ const Profile = (props) => {
     return (
 
         < div className={mod.content}>
-            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileInfo  isOwner={props.isOwner} profile={props.profile}
+                          status={props.status}
+                          updatePhoto={props.updatePhoto}
+                          updateStatus={props.updateStatus}/>
+
             <MyPostsContainer/>
         </div>
     )
