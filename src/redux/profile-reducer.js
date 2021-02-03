@@ -1,4 +1,5 @@
 import {ProfileAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 
 let ADD_POST = 'profilePage/ADD-POST';
@@ -100,6 +101,19 @@ export const updatePhotoThunk = (photo) =>async (dispatch) => {
     let data = await ProfileAPI.updatePhoto(photo)
                 if (data.resultCode === 0)
                 dispatch(setPhoto(data.data.photos))
+
+}
+
+export const dataThunk = (profile) =>async (dispatch,getState) => {
+    const userId = getState().auth.id
+    let data = await ProfileAPI.updateData(profile)
+      if (data.resultCode === 0) {
+          dispatch(profileThunk(userId))
+      } else {
+          dispatch(stopSubmit("data",{_error:data.messages[0]}));
+          return Promise.reject(data.messages[0])
+      }
+
 
 }
 
