@@ -16,15 +16,15 @@ export const LoginForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
         <div><Field name="email" component={Input}
                     validate={[required]} placeholder={"Email"} /></div>
-        <div><Field name="password" component={Input} type="password"
+        <div className={mod.password}><Field name="password" component={Input} type="password"
                     validate={[required]} placeholder={"Password"} /></div>
-        <div><Field name="rememberMe" component={Input}  type={"Checkbox"} />remember me</div>
+        <div className={mod.checkbox}><Field name="rememberMe" component={Input}  type={"Checkbox"} />remember me</div>
         {props.error && <div className={mod.formError}>{props.error}</div>}
 
         {props.captcha && <img src={props.captcha.url}/>}
         {props.captcha && <Field name="captcha" component={Input}  />}
 
-        <div><button >Login</button></div>
+        <div><button className={mod.login} >Log in</button></div>
         <div className={mod.test}>
             <div>Данные тестового аккаунта:</div>
             <div>Email: <b>free@samuraijs.com</b></div>
@@ -46,7 +46,7 @@ const Login = (props) => {
 
     if (props.isAuth) {return <Redirect to={"profile"}/>}
 
-    return <div> <h1>Login</h1>
+    return <div className={mod.loginSocial}> <h1 className={mod.text}>Login social network</h1>
       <LoginReduxForm onSubmit={onSubmit} captcha={props.captcha}/>
 
     </div>

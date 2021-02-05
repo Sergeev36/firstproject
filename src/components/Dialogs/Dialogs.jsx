@@ -20,7 +20,7 @@ const DialogsForm = (props) => {
                     </div>
 
                     <div>
-                        <button>Send</button>
+                        <button className={mod.button}>Send</button>
                     </div>
                 </div>
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
+import mod from'../ProfileInfo/ProfileInfo.module.css'
 
 
 const ProfileStatusWitchHook = (props) => {
@@ -25,8 +25,8 @@ const ProfileStatusWitchHook = (props) => {
         }
 
         return <div>
-            {!editMode && <div>
-                <span onDoubleClick={activateEditMode}>{props.status  || "status"}</span>
+            {!editMode && <div className={mod.status}  >
+                <span onDoubleClick={activateEditMode}><b>Status: </b>{props.status  || "status"}</span>
             </div>}
 
             {editMode && <div>

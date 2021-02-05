@@ -15,14 +15,15 @@ const MyPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={mod.newPost}>
 
-                <h3>New Post</h3>
+
 
                 <div className={mod.newText}>
+                    <h3 className={mod.text}>New Post</h3>
                     <Field name="postText"  component={Textarea}
                            placeholder="Post message" validate={[required,maxLength]}/>
                 </div>
 
-                <div className={mod.button}><button>Add post</button></div>
+                <div ><button className={mod.button}>Add post</button></div>
 
 
         </form>

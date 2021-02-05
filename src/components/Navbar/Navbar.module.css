@@ -12,6 +12,10 @@
     text-decoration: none;
 }
 
+.link a:hover {
+    cursor: pointer !important;
+}
+
 .link a.active {
     color: #f59936;
 }

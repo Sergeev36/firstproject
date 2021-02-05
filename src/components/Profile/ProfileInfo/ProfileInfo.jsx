@@ -39,15 +39,17 @@ const ProfileInfo = (props) => {
     return (
        <div className={mod.profileInfo}>
            {/*< img className={mod.fon} src="https://avatars.mds.yandex.net/get-pdb/251121/63f7b74c-ea57-4fc8-95be-7934d9798c6f/s1200"/>*/}
-            <div className={mod.profile}>
+                <div >
                 <img className={mod.photo} src={props.profile.photos.large || "https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"} alt=""/>
-                {props.isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
-                <ProfileStatusWitchHook status={props.status} updateStatus={props.updateStatus}/>
+                {props.isOwner && <div> <input className={mod.addPhoto}  type="file" onChange={onMainPhotoSelected}/></div>}
 
+                </div>
+              <div className={mod.info} >
+               <ProfileStatusWitchHook status={props.status} updateStatus={props.updateStatus}/>
                 {!editData && <ProfileData profile={props.profile} isOwner={props.isOwner} activateEditData={activateEditData} />}
                 {editData && <ProfileDataChange initialValues={props.profile} profile={props.profile} onSubmit={onSubmit} />}
+              </div>
 
-            </div>
         </div>
             )
 }

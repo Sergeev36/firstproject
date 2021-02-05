@@ -14,7 +14,7 @@ import React from "react";
                     <li><b>{key}: </b>{props.profile.contacts[key]}</li>
                 </ul>
             )}</div>
-            {props.isOwner && <button onClick={props.activateEditData}>Edit</button>}
+            {props.isOwner && <button className={mod.button} onClick={props.activateEditData}>Edit</button>}
         </div>
     )
 

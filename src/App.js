@@ -1,6 +1,6 @@
 import './App.css';
 import React,{Suspense} from "react";
-import {HashRouter, Route} from "react-router-dom";
+import {HashRouter, Route, Switch} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 import {initializeThunk} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloager";
@@ -38,12 +38,11 @@ class App extends React.Component {
 
     return (
 
-            <div className="app-wrapper">
+        <div className="app-wrapper">
                 <HeaderContainer/>
                 <Nav/>
                 <div className="app-wrapper-contents">
                    <Suspense fallback={<Preloader/>}>
-
                     <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
                     <Route exact path='/dialogs' render={ () => <DialogsContainer />}/>
                     <Route exact path='/users' render={ () => <UsersContainer/>}/>
@@ -55,7 +54,6 @@ class App extends React.Component {
                 </Suspense>
                 </div>
             </div>
-
 
 )}
 }

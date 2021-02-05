@@ -21,7 +21,7 @@ const ProfileDataChange = (props) => {
                 </ul>
                 )}</div>
             {props.error && <div className={mod.formError}>{props.error}</div>}
-            <button>Save</button>
+            <button className={mod.button} >Save</button>
         </form>
     )
 

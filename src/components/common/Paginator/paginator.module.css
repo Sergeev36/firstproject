@@ -5,6 +5,7 @@
 
 .selectedPage:hover{
     cursor: pointer;
+
 }
 
 .page {
@@ -14,4 +15,5 @@
 
 .page:hover {
     cursor: pointer;
+
 }

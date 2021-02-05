@@ -6,3 +6,25 @@
 .posts {
     margin: 10px;
 }
+
+.newText {
+    margin-top: -150px;
+}
+
+.text {
+    color:#f59936
+}
+
+.button {
+    color: white;
+    background: #f59936;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.button:hover {
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #c148c7,#777);
+}
