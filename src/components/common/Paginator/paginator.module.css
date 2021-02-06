@@ -1,6 +1,8 @@
 .selectedPage {
     font-weight: bold;
-    border: 1px red solid;
+    border-radius: 5px;
+    color:#f59936;
+    margin-left: 5px;
 }
 
 .selectedPage:hover{
@@ -9,7 +11,8 @@
 }
 
 .page {
-    margin-left: 2px;
+    margin-left: 5px;
+    color:#c148c7;
 
 }
 
@@ -17,3 +20,33 @@
     cursor: pointer;
 
 }
+
+.arrowRight
+{
+    border: solid #c148c7;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px 12px 0 0;
+    background-color:  inherit;
+    cursor: pointer;
+    outline: none;
+
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+
+.arrowLeft
+{
+    border: solid #c148c7;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px 12px 0 0;
+    background-color: inherit;
+    cursor: pointer;
+    outline: none;
+
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+

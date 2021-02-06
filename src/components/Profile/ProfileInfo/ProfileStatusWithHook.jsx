@@ -24,9 +24,12 @@ const ProfileStatusWitchHook = (props) => {
         setStatus(e.target.value)
         }
 
+    if (props.isOwner) {
         return <div>
-            {!editMode && <div className={mod.status}  >
-                <span onDoubleClick={activateEditMode}><b>Status: </b>{props.status  || "status"}</span>
+
+
+            {!editMode && <div className={mod.status}>
+                <span onDoubleClick={activateEditMode}><b>Status: </b>{props.status || "..."}</span>
             </div>}
 
             {editMode && <div>
@@ -35,6 +38,11 @@ const ProfileStatusWitchHook = (props) => {
 
 
         </div>
+    } else {
+        return <div>
+            <span><b>Status: </b>{props.status || "..."}</span>
+        </div>
+    }
 
 
 }

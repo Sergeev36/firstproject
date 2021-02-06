@@ -45,7 +45,7 @@ const ProfileInfo = (props) => {
 
                 </div>
               <div className={mod.info} >
-               <ProfileStatusWitchHook status={props.status} updateStatus={props.updateStatus}/>
+               <ProfileStatusWitchHook  isOwner={props.isOwner} status={props.status} updateStatus={props.updateStatus}/>
                 {!editData && <ProfileData profile={props.profile} isOwner={props.isOwner} activateEditData={activateEditData} />}
                 {editData && <ProfileDataChange initialValues={props.profile} profile={props.profile} onSubmit={onSubmit} />}
               </div>
