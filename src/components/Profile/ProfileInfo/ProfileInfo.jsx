@@ -27,7 +27,7 @@ const ProfileInfo = (props) => {
 
 
     if (!props.profile) {
-        return <Preloader/>
+        return <div className={mod.preloader}><Preloader/></div>
     }
 
    let onMainPhotoSelected = (e) => {
