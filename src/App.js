@@ -43,6 +43,7 @@ class App extends React.Component {
                 <Nav/>
                 <div className="app-wrapper-contents">
                    <Suspense fallback={<Preloader/>}>
+                       <Switch>
                     <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
                     <Route exact path='/dialogs' render={ () => <DialogsContainer />}/>
                     <Route exact path='/users' render={ () => <UsersContainer/>}/>
@@ -50,7 +51,9 @@ class App extends React.Component {
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
                     <Route path='/login' component={Login}/>
-
+                    <Route path='/' render={ () => <ProfileContainer />}/>
+                    <Route path='*' render={ () => <div>404 NOT FOUND</div>}/>
+                       </Switch>
                 </Suspense>
                 </div>
             </div>
