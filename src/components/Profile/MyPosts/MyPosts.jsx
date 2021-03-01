@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from "./Post/Post";
 import mod from "./MyPosts.module.css";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
@@ -39,8 +39,9 @@ const PostReduxForm = reduxForm({
 
 const MyPosts = (props) => {
 
-    const addNewPost = (value) => {
-        props.addPost(value.postText)
+    const addNewPost = (value,dispatch) => {
+        props.addPost(value.postText);
+        dispatch(reset('newPostText'))
     }
 
     let dialogsElements = props. profilePage.posts.map(m => <Post key={m.id} message={m.message} likesCount={m.likesCount} avatar={m.avatar}/>);
